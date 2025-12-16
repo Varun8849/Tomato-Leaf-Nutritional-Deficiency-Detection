@@ -1,4 +1,4 @@
-# Layer-wise Analysis of Data Augmentation for Tomato Nutritional Deficiency Detection
+# Layer-wise Analysis of Data Augmentation for Tomato Disease Detection
 
 This repository contains the code and results for a research paper on analyzing the impact of different data augmentation strategies on a YOLOv8 model for tomato disease detection. The experiments are conducted on a custom tomato dataset with various augmentations applied in a layer-wise manner.
 
@@ -6,17 +6,17 @@ This repository contains the code and results for a research paper on analyzing 
 
 The primary goal of this research is to evaluate how different data augmentation techniques, when applied sequentially, affect the performance of a YOLOv8 model. The experiments are performed on a dataset of tomato images to detect various diseases. The Jupyter notebook `Layerwise results.ipynb` in this repository contains the complete implementation of the experiments, including data loading, model training, and evaluation.
 
-## Reproducibility and Code
+## Reproducibility and Workflow
 
-To address the need for reproducibility, this repository provides all the necessary code and a clear summary of the datasets used.
+To ensure a fully transparent, leakage-safe, and reproducible workflow, we have utilized Roboflow for dataset management and a dedicated GitHub repository for the code. This allows independent researchers to reconstruct the dataset splits, reproduce model training, and verify all reported results.
 
-The notebook `Layerwise results.ipynb` contains all the code used for the experiments. This includes:
--   **Data Loading:** Code to download the datasets from Roboflow.
--   **Data Augmentation:** The different augmentation strategies are implemented by using different datasets from Roboflow, where the augmentations have been pre-applied. The notebook is structured to test each of these datasets sequentially.
--   **Model Training:** The code for training the YOLOv8 model for each experiment is included in the notebook, using the `ultralytics` library.
+### Dataset Partitioning and Augmentation
+Dataset partitioning and data augmentation were performed using Roboflow, which provides a standardized, version-controlled, and reproducible pipeline for dataset management. The original tomato subset was uploaded to Roboflow, where it was automatically split into training, validation, and test subsets using a fixed 60-25-15 ratio. 
 
-### Data Splitting and Leakage
-To ensure that there is no data leakage between the training, validation, and test sets, the datasets were pre-split on Roboflow. The notebook downloads these already separated datasets and uses them for training, validation, and testing. This approach guarantees that the test set remains completely independent and is not seen by the model during training or validation.
+**Importantly, all augmentation operations were applied exclusively to the training subset within Roboflow, while the validation and test subsets were preserved in their original, unaltered form, thereby ensuring strict data leakage prevention.**
+
+### Code and Experiments
+This GitHub repository contains the complete model training, evaluation, and analysis code. This includes fully documented Python notebooks covering YOLOv8 training, layer-wise experiments, ablation studies, and evaluation metrics. The notebooks explicitly record the layer-wise augmentation outcomes (image counts after each augmentation stage) as reported in the paper, ensuring consistency between the dataset generation process and the experimental results.
 
 ### Dataset Summary
 The following table provides a summary of the image sets used for training, testing, and validation for each experiment to ensure reproducibility.
@@ -29,19 +29,14 @@ The following table provides a summary of the image sets used for training, test
 | "Flip and Rotation" augmentations        | Flip and Rotation             | 744             | 213               | 111         |
 | "Flip, Rotation and Saturation"          | Flip, Rotation and Saturation | 992             | 284               | 148         |
 
+## Resources
+-   **GitHub (training & evaluation code):** [https://github.com/Varun8849/Tomato-Leaf-Nutritional-Deficiency-Detection](https://github.com/Varun8849/Tomato-Leaf-Nutritional-Deficiency-Detection)
+-   **Roboflow Dataset (splitting & augmentation):** [https://universe.roboflow.com/tomato-nutrition/balanced-tomato-dataset-sfqxc](https://universe.roboflow.com/tomato-nutrition/balanced-tomato-dataset-sfqxc)
+
 
 ## Usage
 
 The `Layerwise results.ipynb` notebook is self-contained and can be run cell by cell in a Jupyter environment to reproduce the experiments and results. The notebook is divided into sections, each corresponding to a different experiment with a specific data augmentation strategy.
-
-## Methodology
-
-The notebook investigates the effect of applying data augmentations in a "layer-wise" manner. For each experiment, the notebook contains the complete code for:
--   Downloading the specific pre-augmented and pre-split dataset from Roboflow.
--   Counting the number of images per class.
--   Training the YOLOv8 model on the training set.
--   Validating the model on the validation set.
--   Testing the model on the independent test set.
 
 ## Results
 
