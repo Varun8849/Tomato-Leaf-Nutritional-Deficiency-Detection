@@ -1,4 +1,4 @@
-# Layer-wise Analysis of Data Augmentation for Tomato Disease Detection
+# Layer-wise Analysis of Data Augmentation for Tomato Nutritional Deficiency Detection
 
 This repository contains the code and results for a research paper on analyzing the impact of different data augmentation strategies on a YOLOv8 model for tomato disease detection. The experiments are conducted on a custom tomato dataset with various augmentations applied in a layer-wise manner.
 
