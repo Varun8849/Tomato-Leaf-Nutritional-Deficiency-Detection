@@ -21,13 +21,13 @@ To ensure that there is no data leakage between the training, validation, and te
 ### Dataset Summary
 The following table provides a summary of the image sets used for training, testing, and validation for each experiment to ensure reproducibility.
 
-| Experiment Name                          | Roboflow Dataset Name                | Augmentations Applied         | Training Images | Validation Images | Test Images |
-| ---------------------------------------- | ------------------------------------ | ----------------------------- | --------------- | ----------------- | ----------- |
-| Balanced Tomato Layered Augmentation     | `Balanced-Tomato-Dataset-2`          | All augmentations at once     | 1190            | 150               | 150         |
-| Original Tomato dataset (356 images)     | `OG_Tomato-3`                        | None (Original images)        | 248             | 71                | 37          |
-| Only "Flip" augmentation                 | `only_train-z8q6q`                   | Flip                          | 496             | 142               | 74          |
-| "Flip and Rotation" augmentations        | `flip-rotation-90-zlhxm`             | Flip and Rotation             | 744             | 213               | 111         |
-| "Flip, Rotation and Saturation"          | `for-making-2x-rbi1b`                | Flip, Rotation, and Saturation | 992             | 284               | 148         |
+| Experiment Name                          | Augmentations Applied         | Training Images | Validation Images | Test Images |
+| ---------------------------------------- | ----------------------------- | --------------- | ----------------- | ----------- |
+| Balanced Tomato Layered Augmentation     | All augmentations at once     | 1190            | 150               | 150         |
+| Original Tomato dataset (356 images)     | None (Original images)        | 248             | 71                | 37          |
+| Only "Flip" augmentation                 | Flip                          | 496             | 142               | 74          |
+| "Flip and Rotation" augmentations        | Flip and Rotation             | 744             | 213               | 111         |
+| "Flip, Rotation and Saturation"          | Flip, Rotation and Saturation | 992             | 284               | 148         |
 
 
 ## Usage
